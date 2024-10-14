@@ -6,7 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import org.polaris_bear.wild_wind.WildWindMod;
 
-public class Helper {
+public class Helpers {
 
     public static ResourceLocation location(String path) {
         return ResourceLocation.fromNamespaceAndPath(WildWindMod.MOD_ID, path);

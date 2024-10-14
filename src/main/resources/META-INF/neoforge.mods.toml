@@ -3,16 +3,16 @@ loaderVersion="${loader_version_range}"
 license="${mod_license}"
 
 [[mods]]
-modId="${mod_id}"
-version="${mod_version}"
-displayName="${mod_name}"
-authors="${mod_authors}"
-description='''${mod_description}'''
+modId="wild_wind"
+version="1.0.0"
+displayName="Wild Wind Mod"
+authors="wdog5734,baka4n,Viola-Siemens"
+description='''Wild Wind Mod'''
 
 [[mixins]]
-config="${mod_id}.mixins.json"
+config="wild_wind.mixins.json"
 
-[[dependencies.${mod_id}]]
+[[dependencies.wild_wind]]
     modId="neoforge"
     type="required"
     versionRange="${neo_version_range}"
@@ -20,7 +20,7 @@ config="${mod_id}.mixins.json"
     side="BOTH"
 
 # Here's another dependency
-[[dependencies.${mod_id}]]
+[[dependencies.wild_wind]]
     modId="minecraft"
     type="required"
     versionRange="${minecraft_version_range}"

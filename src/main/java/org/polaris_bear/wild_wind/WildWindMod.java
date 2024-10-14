@@ -20,7 +20,6 @@ public class WildWindMod {
     public WildWindMod(IEventBus modEventBus, ModContainer modContainer) {
         ModItems.ITEMS.register(modEventBus);
         ModEntities.ENTITIES.register(modEventBus);
-        modEventBus.addListener(ModCreativeTabs::buildGroup);
         modContainer.registerConfig(ModConfig.Type.COMMON, WildWindConfig.SPEC);
     }
 }
