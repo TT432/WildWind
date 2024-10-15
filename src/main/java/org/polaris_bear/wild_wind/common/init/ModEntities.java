@@ -20,4 +20,5 @@ public class ModEntities {
     private static <E extends Entity> DeferredHolder<EntityType<?>, EntityType<E>> register(String name, EntityType.Builder<E> builder) {
         return ENTITIES.register(name, resourceLocation -> builder.build(name));
     }
+
 }

@@ -76,7 +76,8 @@ configurations {
 }
 
 dependencies {
-
+    compileOnly(project(":annotation"))
+    annotationProcessor(project(":processor"))
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
@@ -117,7 +118,8 @@ publishing {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
-    exclude(".cache")
+    exclude(".cache/**")
+    exclude("org/polaris_bear/wild_wind/datagen")
 }
 
 idea {
