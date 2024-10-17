@@ -6,15 +6,15 @@ import org.polaris_bear.wild_wind.WildWindMod;
 import org.polaris_bear.wild_wind.common.init.ModEntities;
 import org.polaris_bear.wild_wind.common.init.ModItems;
 
-public class ModLangProviderEn extends LanguageProvider {
+public class ModLangProviderZh extends LanguageProvider {
 
-    public ModLangProviderEn(PackOutput output) {
-        super(output, WildWindMod.MOD_ID, "en_us");
+    public ModLangProviderZh(PackOutput output) {
+        super(output, WildWindMod.MOD_ID, "zh_cn");
     }
 
     @Override
     protected void addTranslations() {
-        add(ModItems.FIRE_FLY_EGG.get(), "Firefly Spawn Egg");
-        add(ModEntities.FIRE_FLY.get(), "Firefly");
+        add(ModItems.FIRE_FLY_EGG.get(), "生成萤火虫");
+        add(ModEntities.FIRE_FLY.get(), "萤火虫");
     }
 }

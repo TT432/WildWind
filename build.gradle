@@ -13,6 +13,13 @@ group = mod_group_id
 
 repositories {
     mavenLocal()
+    maven {
+        name = 'GeckoLib'
+        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+        content {
+            includeGroup("software.bernie.geckolib")
+        }
+    }
 }
 
 base {
@@ -75,9 +82,16 @@ configurations {
     runtimeClasspath.extendsFrom localRuntime
 }
 
+jarJar.setEnabled(true)
+
 dependencies {
     compileOnly(project(":annotation"))
     annotationProcessor(project(":processor"))
+    implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
+
+    jarJar(group: 'software.bernie.geckolib', name: 'geckolib-neoforge-1.21.1', version: '[4.6.6,7.0.0)') {
+        transitive(false)
+    }
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
@@ -119,7 +133,10 @@ publishing {
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
     exclude(".cache/**")
-    exclude("org/polaris_bear/wild_wind/datagen")
+}
+
+build {
+    dependsOn 'jarJar'
 }
 
 idea {
