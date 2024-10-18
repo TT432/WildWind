@@ -14,7 +14,7 @@ public class ModLangProviderEn extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        add(ModItems.FIRE_FLY_EGG.get(), "Firefly Spawn Egg");
-        add(ModEntities.FIRE_FLY.get(), "Firefly");
+        add(ModItems.FIREFLY_SPAWN_EGG.get(), "Firefly Spawn Egg");
+        add(ModEntities.FIREFLY.get(), "Firefly");
     }
 }

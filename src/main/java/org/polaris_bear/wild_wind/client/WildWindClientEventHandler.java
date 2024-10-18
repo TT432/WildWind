@@ -14,7 +14,7 @@ public class WildWindClientEventHandler {
 
     @SubscribeEvent
     public static void registerEntityRenderer(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerEntityRenderer(ModEntities.FIRE_FLY.get(), FireflyRenderer::new);
+        event.registerEntityRenderer(ModEntities.FIREFLY.get(), FireflyRenderer::new);
     }
 
     @SubscribeEvent
