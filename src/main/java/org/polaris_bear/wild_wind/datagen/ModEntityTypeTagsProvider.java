@@ -22,6 +22,6 @@ public class ModEntityTypeTagsProvider extends EntityTypeTagsProvider {
     @Override
     protected void addTags(HolderLookup.@NotNull Provider pProvider) {
         IntrinsicTagAppender<EntityType<?>> tag = tag(EntityTypeTags.ARTHROPOD);
-        tag.add(ModEntities.FIRE_FLY.get());
+        tag.add(ModEntities.FIREFLY.get());
     }
 }

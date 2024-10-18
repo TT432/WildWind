@@ -14,6 +14,6 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        spawnEggItem(ModItems.FIRE_FLY_EGG.get());
+        spawnEggItem(ModItems.FIREFLY_SPAWN_EGG.get());
     }
 }

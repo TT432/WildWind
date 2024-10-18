@@ -14,7 +14,7 @@ public class ModLangProviderZh extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        add(ModItems.FIRE_FLY_EGG.get(), "生成萤火虫");
-        add(ModEntities.FIRE_FLY.get(), "萤火虫");
+        add(ModItems.FIREFLY_SPAWN_EGG.get(), "生成萤火虫");
+        add(ModEntities.FIREFLY.get(), "萤火虫");
     }
 }

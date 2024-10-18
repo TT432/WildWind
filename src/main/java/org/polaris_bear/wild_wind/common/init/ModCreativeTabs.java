@@ -15,10 +15,10 @@ public class ModCreativeTabs {
             event.accept(ModItems.GLOW_GOOP);
         }
         if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
-            event.accept(ModItems.FIRE_FLY_EGG);
+            event.accept(ModItems.FIREFLY_SPAWN_EGG);
         }
         if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
-            event.accept(ModItems.FIRE_FLY_EGG);
+            event.accept(ModItems.FIREFLY_SPAWN_EGG);
         }
     }
 }

@@ -81,16 +81,20 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 configurations {
     runtimeClasspath.extendsFrom localRuntime
 }
-
-jarJar.setEnabled(true)
-
+def jij = libs.bundles.jar.in.jar
+def jijg=jij.get()
+if (!jijg.isEmpty()) {
+    jarJar.setEnabled(true)
+}
 dependencies {
     compileOnly(project(":annotation"))
     annotationProcessor(project(":processor"))
-    implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
 
-    jarJar(group: 'software.bernie.geckolib', name: 'geckolib-neoforge-1.21.1', version: '[4.6.6,7.0.0)') {
-        transitive(false)
+    compileOnly(libs.bundles.linkage)
+    runtimeOnly(libs.bundles.linkage)
+    implementation(jij)
+    for (final def ji in jijg) {
+        jarJar(group:ji.group, name:ji.name, version:"[$ji.version,)") {transitive(false)}
     }
 }
 
@@ -135,8 +139,10 @@ tasks.withType(JavaCompile).configureEach {
     exclude(".cache/**")
 }
 
-build {
-    dependsOn 'jarJar'
+if (!jijg.isEmpty()) {
+    build {
+        dependsOn 'jarJar'
+    }
 }
 
 idea {

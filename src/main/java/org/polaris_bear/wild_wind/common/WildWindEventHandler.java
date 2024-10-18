@@ -12,6 +12,6 @@ public class WildWindEventHandler {
 
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event) {
-        event.put(ModEntities.FIRE_FLY.get(), Firefly.createAttributes());
+        event.put(ModEntities.FIREFLY.get(), Firefly.createAttributes());
     }
 }
