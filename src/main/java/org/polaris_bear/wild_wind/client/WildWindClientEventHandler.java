@@ -16,9 +16,4 @@ public class WildWindClientEventHandler {
     public static void registerEntityRenderer(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.FIREFLY.get(), FireflyRenderer::new);
     }
-
-    @SubscribeEvent
-    public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        event.registerLayerDefinition(FireflyModel.LOCATION, FireflyModel::createBodyLayer);
-    }
 }
