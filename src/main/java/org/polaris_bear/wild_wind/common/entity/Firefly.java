@@ -37,8 +37,8 @@ import software.bernie.geckolib.animation.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 public class Firefly extends PathfinderMob implements FlyingAnimal, GeoEntity {
-    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
-    private static final EntityDataAccessor<Boolean> roost = SynchedEntityData.defineId(Firefly.class, EntityDataSerializers.BOOLEAN);
+    private final AnimatableInstanceCache CACHE = GeckoLibUtil.createInstanceCache(this);
+    private static final EntityDataAccessor<Boolean> ROOST = SynchedEntityData.defineId(Firefly.class, EntityDataSerializers.BOOLEAN);
     public Firefly(EntityType<? extends PathfinderMob> type, Level level) {
         super(type, level);
         this.moveControl = new FlyingMoveControl(this, 20, true);
@@ -47,7 +47,7 @@ public class Firefly extends PathfinderMob implements FlyingAnimal, GeoEntity {
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
-        builder.define(roost, false);
+        builder.define(ROOST, false);
     }
 
     @Nullable
@@ -58,11 +58,11 @@ public class Firefly extends PathfinderMob implements FlyingAnimal, GeoEntity {
     }
 
     public void setRoost(boolean r) {
-        this.entityData.set(roost, r);
+        this.entityData.set(ROOST, r);
     }
 
     public boolean isRoost() {
-        return this.entityData.get(roost);
+        return this.entityData.get(ROOST);
     }
 
 
@@ -173,6 +173,6 @@ public class Firefly extends PathfinderMob implements FlyingAnimal, GeoEntity {
      */
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return cache;
+        return CACHE;
     }
 }
