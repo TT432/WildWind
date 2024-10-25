@@ -1,5 +1,6 @@
 package org.polaris_bear.wild_wind;
 
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.ModList;
@@ -22,5 +23,9 @@ public class WildWindMod {
         ModEntities.ENTITIES.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
         modContainer.registerConfig(ModConfig.Type.COMMON, WildWindConfig.SPEC);
+    }
+
+    public static ResourceLocation mod(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
 }

@@ -28,16 +28,8 @@ import org.jetbrains.annotations.Nullable;
 import org.polaris_bear.wild_wind.common.entity.goal.FireflyBaseGoal;
 import org.polaris_bear.wild_wind.common.entity.goal.FireflyFlyGoal;
 import org.polaris_bear.wild_wind.common.entity.goal.FireflyRoostGoal;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.AnimationState;
-import software.bernie.geckolib.animation.PlayState;
-import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class Firefly extends PathfinderMob implements FlyingAnimal, GeoEntity {
-    private final AnimatableInstanceCache CACHE = GeckoLibUtil.createInstanceCache(this);
+public class Firefly extends PathfinderMob implements FlyingAnimal {
     private static final EntityDataAccessor<Boolean> ROOST = SynchedEntityData.defineId(Firefly.class, EntityDataSerializers.BOOLEAN);
     public Firefly(EntityType<? extends PathfinderMob> type, Level level) {
         super(type, level);
@@ -137,42 +129,5 @@ public class Firefly extends PathfinderMob implements FlyingAnimal, GeoEntity {
     @Override
     public boolean isFlying() {
         return true;
-    }
-
-    /**
-     * Register your {@link AnimationController AnimationControllers} and their respective animations and conditions
-     * <p>
-     * Override this method in your animatable object and add your controllers via {@link AnimatableManager.ControllerRegistrar#add ControllerRegistrar.add}
-     * <p>
-     * You may add as many controllers as wanted
-     * <p>
-     * Each controller can only play <u>one</u> animation at a time, and so animations that you intend to play concurrently should be handled in independent controllers
-     * <p>
-     * Note having multiple animations playing via multiple controllers can override parts of one animation with another if both animations use the same bones or child bones
-     *
-     * @param controllers The object to register your controller instances to
-     */
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(
-                this,
-                this::handle
-        ));
-    }
-
-    private PlayState handle(AnimationState<Firefly> fireflyAnimationState) {
-        return PlayState.CONTINUE;
-    }
-
-    /**
-     * Each instance of a {@code GeoAnimatable} must return an instance of an {@link AnimatableInstanceCache}, which handles instance-specific animation info
-     * <p>
-     * Generally speaking, you should create your cache using {@code GeckoLibUtil#createCache} and store it in your animatable instance, returning that cached instance when called
-     *
-     * @return A cached instance of an {@code AnimatableInstanceCache}
-     */
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return CACHE;
     }
 }
